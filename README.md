@@ -30,3 +30,4 @@ Run the following command to run startup migrations.
 adonis migration:run
 ```
 # blog_adonis
+# blog_adonis
