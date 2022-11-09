@@ -1,0 +1,35 @@
+ <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+ <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                 @if(!auth.user)
+
+                    <li><a class="nav-link scrollto active" href="/">Home</a></li>
+                    <li><a class="nav-link scrollto" href="#about">About</a></li>
+                    <li><a class="nav-link scrollto " href="#blog">Blog</a></li>
+                    <li class="dropdown"><a href="#"><span>Login</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="/login">Login</a></li>
+                            <li><a href="/register">Register</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+                @else
+                
+                <li><a class="nav-link scrollto active" href="/">Home</a></li>
+                    <li><a class="nav-link scrollto" href="#about">About</a></li>
+                    <li><a class="nav-link scrollto " href="/blog">Blog</a></li>
+                    <li><a class="nav-link scrollto " href="/logout">Log out</a></li>
+                @endif
+            </nav>
+            <!-- .navbar -->
+
+        </div>
+  </header>
+ </nav>

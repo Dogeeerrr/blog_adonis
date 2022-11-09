@@ -1,0 +1,33 @@
+@layout('main-m')
+@section('content')
+<div class="row mt-4 mb-4">
+  <div class="col-12 col-md-8">
+    <h2>Редагування посту - {{post.title}}</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-md-8 mx-auto">
+    <form method="post" action="/post/{{post.id}}/update" enctype="multipart/form-data">
+      {{ csrfField() }}
+      <div class="form-group">
+        <label for="title">Назва</label>
+        <input type="text" class="form-control" value="{{post.title}}" name="title" id="title">
+      </div>
+      <div class="form-group">
+        <label for="imag">Фото</label>
+         <input type="file" name="image" value="{{post.image}}" id="title">
+      </div>
+      <div class="form-group">
+        <label for="title">Опис посту</label>
+        <textarea id="mytextarea" name="content">
+                  {{post.content}}
+                </textarea>
+        
+      </div>
+      <button type="submit" class="btn btn-primary">Створит</button>
+    </form>
+  </div>
+</div>
+
+@endsection

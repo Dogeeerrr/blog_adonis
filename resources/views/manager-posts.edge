@@ -1,0 +1,64 @@
+@layout('main-admin')
+@section('content')
+<div class="row mt-4 mb-4">
+  <div class="col-12 col-md-8">
+    <p>Керування постам!</p>
+  </div>
+  <div class="col-12 col-md-4 text-right">
+    <a href="/create-post" class="btn btn-primary">Створити пост</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6">
+    @if(old('message'))
+      <div class="alert alert-{{old('type')}}" role="alert">
+        {{old('message')}}
+      </div>
+    @endif
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Назва</th>
+            <th>Автор</th>
+            <th>Дата</th>
+            <th>Дії</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          @each(post in posts)
+          <tr>
+            <th>{{$loop.index +1}}</th>
+            <td>{{post.title}}</td>
+            <td>Doger</td>
+            <td>{{post.created_at}}</td>
+            <td>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <a href="/post/{{post.id}}/edit" class="btn btn-info">Редагування</a>
+                <button type="button" onclick="confirmDelete({{post.id}})" class="btn btn-danger">Видалити</button>
+              </div>
+            </td>
+          </tr>
+          @endeach
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  
+  function confirmDelete(id){
+    if(confirm('Точно хочете видалити публікацію')){
+      var url=window.location.origin+'/post/'+id+'/destroy'
+      window.location=url
+    }
+  }
+</script>
+@endsection

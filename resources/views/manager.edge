@@ -1,0 +1,66 @@
+@layout('main-admin')
+@section('content')
+<div class="row mt-4 mb-4">
+  <div class="col-12 col-md-8">
+    <p>Керування читачами!</p>
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-6">
+    @if(old('message'))
+    <div class="alert alert-{{old('type')}}" role="alert">
+      {{old('message')}}
+    </div>
+    @endif
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Ім'я</th>
+            <th>Імейл</th>
+            <th>Роль</th>
+            <th>Дії</th>
+          </tr>
+        </thead>
+        <tbody>
+
+
+          @each(user in users)
+          @if(user.role=='manager')
+          <tr>
+            <th>{{$loop.index +1}}</th>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.role}}</td>
+            <td>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" onclick="confirmDelete({{user.id}})" class="btn btn-danger">Видалити</button>
+              </div>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <a href="/admin/{{user.id}}/edit" class="btn btn-info">Наданя прав</a>
+              </div>
+            </td>
+          </tr>
+          @endif
+          @endeach
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  function confirmDelete(id){
+    if(confirm('Точно хочете видалити читача')){
+      var url=window.location.origin+'/admin/users/'+id+'/destroy'
+      window.location=url
+    }
+  }
+</script>
+@endsection
