@@ -1,0 +1,16 @@
+{
+    "title":"Title",
+    "author":"Author",
+    "created":"Date of creation",
+    "create":"Create",
+    "actions":"Actions",
+    "name":"Name",
+    "nickname":"Nickname",
+    "email":"Email",
+    "posts":"Posts",
+    "users":"Users",
+    "managers":"Managers",
+    "roles":"Roles",
+    "delete":"Delete",
+    "edit":"Edit"
+}

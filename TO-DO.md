@@ -1,0 +1,21 @@
+2022.12.15
+- [x] (30m) Broken layout
+- [x] (20m) Permissions crud (view, create, delete, edit)
+- [x] (1h) Table functional buttuns to burger menu and width for action 100px
+- [x] (2h) Tables in content wrapper
+- [x] (20m) Remove additional arrow in right top menu
+- [x] (20m) Different modules different icons
+- [x] (5m) Deleting role not working
+- [x] (5m) Creating role not working
+- [x] (4h) Edit/create entity using main layout
+- [x] (5m) Posts table remove content collumn
+- [x] (5m) Posts table add author collumn
+- [x] (3h) Highlight active left side menu
+- [x] (4h) Broken html in many views
+
+- [x] (2h) Editting roles should show attached permissions
+- [x] (2h) Managers should show attached roles. Roles should be as checkboxes - multy roles for one manager
+- [x] Roles / permissions should work. Show/hide elements/buttons/links
+- [x] Scope functional should be in related controller - not spreaded in different as parts
+- [x] admin error 401 should redirect to login page
+- [x] managers appears couple times in manager module table

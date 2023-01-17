@@ -1,0 +1,16 @@
+<form method="post" action='/admin/usersRole/{{user.id}}' enctype="multipart/form-data">
+      {{ csrfField() }}
+     <label for="title">{{antl.formatMessage('tables.roles')}}</label><br>
+      <div class="form-group">
+          <ul class="form-group">
+        @each(role in roles)
+          <input type="checkbox" class="switchery" name="role" value="{{role.id}}">
+          <label for="role">{{role.name}}</label><br>
+        @endeach
+        </ul>
+      </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-link" data-dismiss="modal">{{antl.formatMessage('forms.close')}}</button>
+    <button type="submit" class="btn btn-primary">{{antl.formatMessage('forms.save')}}</button>
+  </div>
+</form>

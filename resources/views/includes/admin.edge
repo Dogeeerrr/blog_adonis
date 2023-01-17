@@ -1,0 +1,125 @@
+<div class="navbar navbar-default header-highlight">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="/blog">
+      <img src="assets/images/logo_light.png" alt="">
+    </a>
+    <ul class="nav navbar-nav visible-xs-block">
+      <li>
+        <a data-toggle="collapse" data-target="#navbar-mobile">
+          <i class="icon-tree5"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sidebar-mobile-main-toggle">
+          <i class="icon-paragraph-justify3"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-collapse collapse" id="navbar-mobile">
+    <ul class="nav navbar-nav">
+      <li>
+        <a class="sidebar-control sidebar-main-toggle hidden-xs">
+          <i class="icon-paragraph-justify3"></i>
+        </a>
+      </li>
+    </ul>
+    
+    <div class="navbar-right">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" >
+						<img src="assets/images/flags/{{antl.currentLocale()}}.png" class="position-left" alt="">
+						{{antl.formatMessage('props.lang')}}
+            <i class="care"></i>
+					</a>
+
+					<ul class="dropdown-menu">
+						<li><a href="/switch/ua" class="ukrainian"><img src="assets/images/flags/ua.png" alt=""> Українська</a></li>
+						<li><a href="/switch/en" class="english"><img src="assets/images/flags/en.png" alt=""> English</a></li>
+					</ul>
+				</li>
+        <li class="dropdown dropdown-user">
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            <img src="assets/images/placeholder.jpg" alt="">
+            <span>{{auth.user.nickname}}</span>
+            <i class="care"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li>
+              <a href="/logout">
+                <i class="icon-switch2"></i> Logout </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="page-container">
+  <!-- Page content -->
+  <div class="page-content">
+    <!-- Main sidebar -->
+    <div class="sidebar sidebar-main">
+      <div class="sidebar-content">
+        <!-- User menu -->
+        <div class="sidebar-user">
+          <div class="category-content">
+            <div class="media">
+              <a href="#" class="media-left">
+                <img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt="">
+              </a>
+              <div class="media-body">
+                <span class="media-heading text-semibold">{{auth.user.nickname}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /user menu -->
+        <!-- Main navigation -->
+        <div class="sidebar-category sidebar-category-visible">
+          <div class="category-content no-padding">
+            <ul class="navigation navigation-main navigation-accordion">
+              <!-- Main -->
+              <li class="navigation-header">
+                <span>Main</span>
+                <i class="icon-menu" title="Main pages"></i>
+              </li>
+              @if(has(['VIEW_POSTS','EDITING_POSTS','CREATE_POSTS', 'DELETING_POSTS']))
+              <li class="{{request.url().split('/')[2] === '' ? 'active' : ''}}">
+                <a href="/admin">
+                  <i class="glyphicon glyphicon-picture"></i>
+                  <span>{{antl.formatMessage('tables.posts')}}</span>
+                </a>
+              </li>
+              @endif
+              @if(has(['DELETING_USERS','EDITING_USERS','VIEW_USERS', 'GRANT_OF_RIGHTS','']))
+              <li class="{{request.url().split('/')[2] === 'users' ? 'active' : ''}}">
+                <a href="/admin/users">
+                  <i class="glyphicon glyphicon-user"></i>
+                  <span>{{antl.formatMessage('tables.users')}}</span>
+                </a>
+              </li>
+              @endif
+              @if(has(['DELETING_MANAGERS','EDITING_MANAGERS', 'VIEW_MANAGERS']))
+              <li class="{{request.url().split('/')[2] === 'manager' ? 'active' : ''}}">
+                <a href="/admin/manager">
+                  <i class="icon-person"></i>
+                  <span>{{antl.formatMessage('tables.managers')}}</span>
+                </a>
+              </li>
+              @endif
+              @if(has(['DELETING_ROLES','EDITING_ROLES','CREATE_ROLES', 'VIEW_ROLES']))
+              <li class="{{request.url().split('/')[2] === 'role' ? 'active' : ''}}">
+                <a href="/admin/role">
+                  <i class="icon-theater"></i>
+                  <span>{{antl.formatMessage('tables.roles')}}</span>
+                </a>
+              </li>
+              @endif
+            </ul>
+          </div>
+        </div>
+        <!-- /main navigation -->
+      </div>
+    </div>

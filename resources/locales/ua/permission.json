@@ -1,0 +1,17 @@
+{
+  "DELETING_POSTS": "Видалення публікацій",
+  "EDITING_POSTS": "Редагування публікацій",
+  "CREATE_POSTS": "Створення публікацій",
+  "VIEW_POSTS": "Перегляд публікацій",
+  "DELETING_USERS": "Видалення користувачів",
+  "EDITING_USERS": "Редагування користувачів",
+  "VIEW_USERS": "Перегляд користувачів",
+  "GRANT_OF_RIGHTS": "Надання прав",
+  "EDITING_MANAGERS": "Редагування прав",
+  "DELETING_MANAGERS": "Видалення прав",
+  "VIEW_MANAGERS": "Перегляд прав",
+  "DELETING_ROLES": "Видалення ролей",
+  "EDITING_ROLES": "Редагування ролей",
+  "CREATE_ROLES": "Створення ролей",
+  "VIEW_ROLES": "Перегляд ролей"
+}

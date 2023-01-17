@@ -1,0 +1,43 @@
+{{style('style.css')}}
+
+<form method="post" action="/posts/{{post.id}}/update" enctype="multipart/form-data">
+  <div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'original')">{{antl.formatMessage('forms.original')}}</button>
+  <button class="tablinks" onclick="openCity(event, 'en')">{{antl.formatMessage('forms.en')}}</button>
+  <button class="tablinks" onclick="openCity(event, 'ua')">{{antl.formatMessage('forms.ua')}}</button>
+</div>
+
+<form>
+<div id="original" class="tabcontent">
+  <h3>{{antl.formatMessage('forms.original')}}</h3>
+  <div class="form-group">
+    <label for="title">{{antl.formatMessage('tables.title')}}</label>
+    <input required type="text" class="form-control" value="{{post.title}}" name="title" id="title">
+  </div>
+  <div class="from-group">
+    <label for="imag">{{antl.formatMessage('forms.images')}}</label>
+    <input required type="file" class="form-control" name="image" src="{{ assetsUrl('uploads/post/'+post.image) }}" value="{{ assetsUrl('uploads/post/'+post.image) }}" id="title" >
+  </div>
+  <label for="title">{{antl.formatMessage('forms.content')}}</label>
+  <textarea id="mytextarea" name="content" class="editor">{{{post.content}}}</textarea>
+</div>
+
+@each(antlDb in antlsDb)
+  <div id="{{antlDb.locale}}" class="tabcontent">
+  <h3>{{antl.forLocale(antlDb.locale).formatMessage('forms.'+antlDb.locale)}}</h3>
+  <div class="form-group">
+    <label for="title">{{antl.forLocale('en').formatMessage('tables.title')}}</label>
+    <input  type="text" class="form-control" value="{{antlDb.title}}" name="{{antlDb.locale}}.title" id="title">
+  </div>
+  <label for="title">{{antl.forLocale('en').formatMessage('forms.content')}}</label>
+  <textarea id="mytextarea" name="{{antlDb.locale}}.content" class="editor">{{{antlDb.content}}}</textarea><br>
+</div>  
+@endeach
+<br>
+<div class="modal-footer">
+    <button type="button" class="btn btn-link" data-dismiss="modal">{{antl.formatMessage('forms.close')}}</button>
+    <button type="submit" class="btn btn-primary">{{antl.formatMessage('forms.save')}}</button>
+</div>
+  
+</form>
+{{ script('tab.js') }}

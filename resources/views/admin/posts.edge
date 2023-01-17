@@ -1,0 +1,56 @@
+@layout('layout/main') 
+@section('content') 
+<div class="content">
+  <div class="col-6"> 
+    @if(old('message')) 
+    <div class="alert alert-{{old('type')}}" role="alert">
+      {{old('message')}}
+    </div> 
+    @endif 
+  </div>
+  <!-- Default ordering -->
+  <div class="panel panel-flat">
+    <div class="panel-heading">
+      <h5 class="panel-title">{{antl.formatMessage('tables.posts')}}</h5>
+      <div class="heading-ele">        
+        @if(permissions.includes('CREATE_POSTS'))
+          <button class="modal-ajax" data-url="/posts/form" class="btn btn-primary">{{antl.formatMessage('tables.create')}}</button>
+        @endif
+      </div>
+      <div class="heading">
+        <div id="modal_default" class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content"></div>
+          </div>
+        </div>
+      </div>
+      <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+        <div>
+          <div class="dataTables_length" id="DataTables_Table_0_length">
+            <b role="presentation"></b>
+            <span class="dropdown-wrapper" aria-hidden="true"></span>
+          </div>
+        </div><div class="datatable-scroll">
+          <table id="customer_data" class="table table-bordered">
+            <thead>
+              <tr role="row">
+                <th>{{antl.formatMessage('tables.title')}}</th>
+                <th>{{antl.formatMessage('tables.author')}}</th>
+                <th>{{antl.formatMessage('tables.created')}}</th>
+                <th width=100px>{{antl.formatMessage('tables.actions')}}</th>
+              </tr>
+            </thead>
+        </div>
+      </div>
+    </div>
+  <script>
+    var permissions = "{{permissions}}"
+    let delet = "{{antl.formatMessage('tables.delete')}}"
+    let edit = "{{antl.formatMessage('tables.edit')}}"
+    let post = "{{antl.formatMessage('alert.post')}}"
+  </script>
+<script src="https://cdn.tiny.cloud/1/t3349wm8jxfh2mrqyd2mfnrm608ttnyliyx5m6kuyf8kl9b1/tinymce/5/tinymce.min.js"></script>
+{{script('assets/posts/js/main.js')}}
+{{script('assets/posts/js/index.js')}}
+
+@endsection

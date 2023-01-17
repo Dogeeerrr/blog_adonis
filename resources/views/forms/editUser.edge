@@ -1,0 +1,37 @@
+<form method="post" action="/admin/users/{{id}}/update" enctype="multipart/form-data">
+  {{ csrfField() }}
+
+  <div class="form-outline mb-4">
+    <input type="text" class="form-control " value="{{name}}" name="name" id="name" aria-describedby="emailHelp">
+    <label class="form-label" for="form3Example3">{{antl.formatMessage('tables.name')}}</label>
+  </div>
+
+  <div class="form-outline mb-4">
+    <input type="text" class="form-control " value="{{nickname}}" name="nickname" id="nickname"
+      aria-describedby="emailHelp">
+    <label class="form-label" for="form3Example3">{{antl.formatMessage('tables.nickname')}}</label>
+  </div>
+
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input type="email" class="form-control " value="{{email}}" name="email" id="email" aria-describedby="emailHelp">
+    <label class="form-label" for="form3Example3">{{antl.formatMessage('tables.email')}}</label>
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-3">
+    <input type="password" name="password" class="form-control " id="password">
+    <label class="form-label" for="form3Example4">{{antl.formatMessage('forms.password')}}</label>
+  </div>
+
+  <!-- Password confirm input -->
+  <div class="form-outline mb-3">
+    <input type="password" name="password_confirmation" class="form-control" id="confirm_password">
+    <label class="form-label" for="form3Example4">{{antl.formatMessage('forms.confirmPassword')}}</label>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-link" data-dismiss="modal">{{antl.formatMessage('forms.close')}}</button>
+    <button type="submit" class="btn btn-primary">{{antl.formatMessage('forms.save')}}</button>
+  </div>
+</form>

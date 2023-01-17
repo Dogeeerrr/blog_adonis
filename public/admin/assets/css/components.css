@@ -17474,6 +17474,13 @@ thead .htCollapseButton:after {
 .breadcrumb-line-component .breadcrumb-elements-toggle {
   right: 15px;
 }
+.heading-ele {
+  background-color: inherit;
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  height: 36px;
+}
 .heading-elements {
   background-color: inherit;
   position: absolute;

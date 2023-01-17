@@ -1,0 +1,52 @@
+{{style('style.css')}}
+
+<form method="post" action="/posts/create" enctype="multipart/form-data">
+{{ csrfField() }}
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'original')">{{antl.formatMessage('forms.original')}}</button>
+  <button class="tablinks" onclick="openCity(event, 'englishTranslation')">{{antl.formatMessage('forms.en')}}</button>
+  <button class="tablinks" onclick="openCity(event, 'ukrainianTranslation')">{{antl.formatMessage('forms.ua')}}</button>
+</div>
+
+<form>
+<div id="original" class="tabcontent">
+  <h3>{{antl.formatMessage('forms.original')}}</h3>
+  <div class="form-group">
+    <label for="title">{{antl.formatMessage('tables.title')}}</label>
+    <input required type="text" class="form-control" value="{{title}}" name="title" id="title">
+  </div>
+  <div class="from-group">
+    <label for="imag">{{antl.formatMessage('forms.images')}}</label>
+    <input required type="file" class="form-control" name="image" value="{{image}}">
+  </div>
+  <label for="title">{{antl.formatMessage('forms.content')}}</label>
+  <textarea id="mytextarea" name="content" class="editor"></textarea><br>
+</div>
+
+<div id="englishTranslation" class="tabcontent">
+  <h3>English translation</h3>
+  <div class="form-group">
+    <label for="title">{{antl.forLocale('en').formatMessage('tables.title')}}</label>
+    <input  type="text" class="form-control" value="{{title}}" name="titleEn" id="title">
+  </div>
+  <label for="title">{{antl.forLocale('en').formatMessage('forms.content')}}</label>
+  <textarea id="mytextarea" name="contentEn" class="editor"></textarea><br>
+</div>
+
+<div id="ukrainianTranslation" class="tabcontent">
+  <h3>Український переклад</h3>
+  <div class="form-group">
+    <label for="title">{{antl.forLocale('ua').formatMessage('tables.title')}}</label>
+    <input  type="text" class="form-control" value="{{title}}" name="titleUa" id="title">
+  </div>
+  <label for="title">{{antl.forLocale('ua').formatMessage('forms.content')}}</label>
+  <textarea id="mytextarea" name="contentUa" class="editor"></textarea>
+</div>
+<br>
+<div class="modal-footer">
+    <button type="button" class="btn btn-link" data-dismiss="modal">{{antl.formatMessage('forms.close')}}</button>
+    <button type="submit" class="btn btn-primary">{{antl.formatMessage('forms.save')}}</button>
+</div>
+
+</form>
+{{ script('tab.js') }}

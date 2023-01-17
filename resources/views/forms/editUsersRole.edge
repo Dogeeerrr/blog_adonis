@@ -1,0 +1,16 @@
+<form method="post" action='/admin/usersRole/update/{{user.id}}?_method=PUT' enctype="multipart/form-data">
+      {{ csrfField() }}
+      <input type="hidden" name="user_id" value="{{ user_id }}">
+       <label for="title">{{antl.formatMessage('tables.roles')}}</label>
+      <div class="form-group">
+          <ul class="form-group">
+       @each(role in roles)
+          <label for="role"><input type="checkbox" class="switchery" name="role" value="{{role.id}}" {{user_roles.includes(role.id) ? 'checked' : ''}}> {{role.name}}</label><br>
+        @endeach
+      </ul>
+      </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-link" data-dismiss="modal">{{antl.formatMessage('forms.close')}}</button>
+    <button type="submit" class="btn btn-primary">{{antl.formatMessage('forms.save')}}</button>
+  </div>
+</form>

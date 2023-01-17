@@ -1,0 +1,48 @@
+@layout('layout/main')
+@section('content')
+<div class="content">
+  <div class="col-6">
+    @if(old('message'))
+    <div class="alert alert-{{old('type')}}" role="alert">
+      {{old('message')}}
+    </div>
+    @endif
+  </div> <!-- Default ordering -->
+  <div class="panel panel-flat">
+    <div class="panel-heading">
+      <h5 class="panel-title">{{antl.formatMessage('tables.roles')}}</h5>
+      <div class="heading-ele">
+        @if(permissions.includes('CREATE_ROLES'))
+        <button class="modal-ajax" data-url="/admin/role/edit" class="btn btn-primary">{{antl.formatMessage('tables.create')}}</button>
+
+        @endif
+      </div>
+      <div class="heading-elements">
+        <a class="heading-elements-toggle"><i class="icon-menu"></i></a>
+      </div>
+      <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+        <div>
+          <div class="dataTables_length" id="DataTables_Table_0_length">
+            <b role="presentation"></b>
+            <span class="dropdown-wrapper" aria-hidden="true"></span>
+          </div>
+          <div class="datatable-scroll">
+            <table id="customer_data" class="table table-bordered">
+              <thead>
+                <tr role="row">
+                  <th>№</th>
+                  <th>{{antl.formatMessage('tables.name')}}</th>
+                  <th width=100px>{{antl.formatMessage('tables.actions')}}</th>
+                </tr>
+              </thead>
+          </div>
+        </div>
+        <script>
+          var permissions = "{{permissions}}"
+         let delet = "{{antl.formatMessage('tables.delete')}}"
+         let edit = "{{antl.formatMessage('tables.edit')}}"
+         let role = "{{antl.formatMessage('alert.role')}}"
+        </script>
+        {{script('assets/roles/js/main.js')}}
+        {{script('assets/roles/js/index.js')}}
+        @endsection

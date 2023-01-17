@@ -943,6 +943,13 @@ textarea {
 .form-group {
   margin-bottom: 20px;
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.form-group li {
+  max-width: 150px;
+  width: 100%;
 }
 .form-group .form-group:last-child {
   margin-bottom: 0;

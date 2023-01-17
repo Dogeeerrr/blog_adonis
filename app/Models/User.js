@@ -1,5 +1,3 @@
-'use strict'
-
 /** @type {import('@adonisjs/framework/src/Hash')} */
 const Hash = use('Hash')
 
@@ -7,7 +5,7 @@ const Hash = use('Hash')
 const Model = use('Model')
 
 class User extends Model {
-  static boot () {
+  static boot() {
     super.boot()
 
     /**
@@ -31,9 +29,26 @@ class User extends Model {
    *
    * @return {Object}
    */
-  tokens () {
+  roles() {
+    return this.belongsToMany('App/Models/UserRole')
+  }
+
+  action() {
+    return this.hasOne('App/Models/Action')
+  }
+
+  actions() {
+    return this.hasMany('App/Models/Action')
+  }
+
+  tokens() {
     return this.hasMany('App/Models/Token')
   }
+
+  // getActionsInLine(a){
+  //   console.log(a);
+  //   return actions.map(({ actions }) => (actions)).join(', ')
+  // }
 }
 
 module.exports = User

@@ -3490,7 +3490,7 @@ tbody.collapse.in {
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
 }
-.caret {
+.care {
   display: inline-block;
   width: 0;
   height: 0;
@@ -4155,8 +4155,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar {
   position: relative;
   min-height: 44px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
 }
 @media (min-width: 769px) {
   .navbar {

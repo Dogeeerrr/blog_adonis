@@ -1,0 +1,10 @@
+{
+    "updatePosts": "The publication has been successfully updated!",
+    "deletePosts": "The publication has been successfully deleted!",
+    "updateRights": "Rights successfully updated!",
+    "deleteRights": "Rights deleted successfully!",
+    "updateUsers": "User successfully updated!",
+    "deleteUsers": "User deleted successfully!",
+    "updateRoles": "The role has been updated successfully!",
+    "deleteRoles": "Role deleted successfully!"
+}

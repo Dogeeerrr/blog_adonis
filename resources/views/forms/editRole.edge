@@ -1,0 +1,23 @@
+<form method="post" action="/admin/role/update/{{role.id}}?_method=PUT" enctype="multipart/form-data">
+      {{ csrfField() }}
+
+      <div class="form-group">
+        <label for="title">{{antl.formatMessage('tables.roles')}}</label>
+        <input required type="text" class="form-control" value="{{role.name}}" name="name" id="name">
+      </div>
+      <label for="title">{{antl.formatMessage('tables.actions')}}</label><br>
+      <ul class="form-group">
+        @each(permission in permissions) 
+        <li>
+          <label> <input type="checkbox" name="permission"  class="switchery" value= "{{permission.key}}" {{actions.includes(permission.key) ? 'checked' : ''}}>
+            {{antl.formatMessage('permission.'+permission.key)}}
+          </label><br>
+         </li>           
+        @endeach
+      </ul>
+      </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-link" data-dismiss="modal">{{antl.formatMessage('forms.close')}}</button>
+    <button type="submit" class="btn btn-primary">{{antl.formatMessage('forms.save')}}</button>
+  </div>
+</form>

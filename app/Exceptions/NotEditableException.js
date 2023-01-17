@@ -2,7 +2,7 @@
 const { LogicalException } = require('@adonisjs/generic-exceptions')
 
 const message = 'The server is down!'
-const status = 500
+const status = 403
 const code = 'E_NOT_EDITABLE'
 
 class NotEditableException extends LogicalException {
